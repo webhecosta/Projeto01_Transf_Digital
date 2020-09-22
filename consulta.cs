@@ -8,44 +8,64 @@ using System.Globalization;
 
 public class Consulta{
 
-   bool retornoCad;
+  bool retornoCad;
+  string line; 
+  int startIndex = 0;
+  int length = 11; 
+  int counter = 0;   
 
-   public bool consulta(string cpf){
+  public bool consulta(string cpf){
+  
+  // Read the file and display it line by line.  
+  System.IO.StreamReader file =
+      new System.IO.StreamReader("pessoa.txt"); 
+  
+  while((line = file.ReadLine()) != null)  
+  {  
+      String substring = line.Substring(startIndex, length);
+      //Console.WriteLine(substring);
+
+      if (substring == cpf ){          
     
-    int counter = 0;  
-    string line; 
-    int startIndex = 0;
-    int length = 11;      
+        return true;
+                
+      }    
+
+      // System.Console.WriteLine(line);  
+        
+  }
+
+    return false;  
       
-    // Read the file and display it line by line.  
+  file.Close();  
+   
+
+  }
+
+  public void exibirCadastro(){
+
+
+      // Read the file and display it line by line.  
     System.IO.StreamReader file =
-        new System.IO.StreamReader("pessoa.txt");  
+        new System.IO.StreamReader("pessoa.txt"); 
+   Console.WriteLine("########CPF's Cadastrados############");
     while((line = file.ReadLine()) != null)  
     {  
-        String substring = line.Substring(startIndex, length);
-        Console.WriteLine(substring);
+        if(counter == 0){
 
-        if (substring == cpf ){
-         
-          retornoCad =  true;
-          
         }else{
-         
-          retornoCad =  false;
+
+           String substring = line.Substring(startIndex, length);
+           Console.WriteLine(substring);
 
         }
-       // System.Console.WriteLine(line);  
-        counter++;  
-    }
+        
 
-    return retornoCad;  
-      
-    file.Close();  
-    //System.Console.WriteLine("There were {0} lines.", counter);  
-    // Suspend the screen.  
-    //System.Console.ReadLine();
+        counter ++;
+     }
 
-    
+    file.Close(); 
+
 
   }
 

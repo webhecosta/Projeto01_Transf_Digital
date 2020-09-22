@@ -38,5 +38,3 @@ using System;
 		return cpf.EndsWith(digito);
 	      }
 	}
-
-

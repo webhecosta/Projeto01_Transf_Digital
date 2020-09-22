@@ -59,9 +59,7 @@ public class Gravar{
 
       //VERIFICAR SE JÁ EXISTE CADASTRO DE ENTREGA COM ESTE CPF
       retornoCad = cons.consulta(cpfDigitado);
-     // Console.WriteLine("RETORNO");
-      //Console.WriteLine(retornoCad);
-      
+     
 
       if (retornoCad == true){
 
@@ -83,6 +81,10 @@ public class Gravar{
       //PERGUNTANDO SE DESEJA CADASTRAR MAIS ENTREGAS
       Console.WriteLine ("Deseja cadastrar novamente ? 1 para SIM | 0 - Para Não ");
       executa = int.Parse(Console.ReadLine());
+
+      escrita.Close();  
+      Console.ReadKey();
+      //escrita = File.AppendText(arquivo);    
         
       }
 
@@ -94,13 +96,19 @@ public class Gravar{
 
     }else{
       Console.WriteLine ("ERRO AO VALIDA CPF!");
-    } 
+    }  
+
+
    }
-    escrita.Close();
-  
-    Console.ReadKey();
+    //escrita.Close();  
+    //Console.ReadKey();
+
+     cons.exibirCadastro();
   
   }
+
+
+  
 
  
 
