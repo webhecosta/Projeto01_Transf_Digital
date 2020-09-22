@@ -27,6 +27,7 @@ public class Gravar{
   //INSTANCIADO A CLASSE
     ValidaCPF valida = new ValidaCPF();
     Consulta cons = new Consulta();
+    Multa multa = new Multa();
      
 
     //PASSANDO O CAMINHO DO ARQUIVO EXISTENTE
@@ -63,8 +64,8 @@ public class Gravar{
 
       if (retornoCad == true){
 
-        Console.WriteLine("A pessoa cadastrada com este CPF já recebeu a máscara!");
-
+        Console.WriteLine("A pessoa cadastrada com este CPF já recebeu a máscara!\n Será multado por não utilizar a proteção obrigatória!");
+        multa.multatxt(cpfDigitado);
 
       }else{
 
@@ -82,9 +83,10 @@ public class Gravar{
       Console.WriteLine ("Deseja cadastrar novamente ? 1 para SIM | 0 - Para Não ");
       executa = int.Parse(Console.ReadLine());
 
+      //SALVANDO E FECHANDO O ARQUIVO A CADA INSERÇÃO DE CPF
       escrita.Close();  
       Console.ReadKey();
-      //escrita = File.AppendText(arquivo);    
+        
         
       }
 
@@ -100,8 +102,7 @@ public class Gravar{
 
 
    }
-    //escrita.Close();  
-    //Console.ReadKey();
+
 
      cons.exibirCadastro();
   
