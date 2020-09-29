@@ -43,6 +43,39 @@ public class Consulta{
 
   }
 
+
+  //FUNÇÃO PARA CONSULTAR MULTA
+  public bool consultaMulta(string cpf){
+  
+ //PREPARANDO O ARQUIVO EXISTENTE PARA LEITURA
+  System.IO.StreamReader file =
+      new System.IO.StreamReader("listamulta.txt"); 
+  
+  while((line = file.ReadLine()) != null)  
+  {  
+      String substring = line.Substring(startIndex, length);
+    
+
+      if (substring == cpf ){          
+    
+        return true;
+                
+      }    
+
+
+        
+  }
+
+    return false;  
+      
+  file.Close();  
+   
+
+  }
+
+
+
+
   //FUNÇÃO PARA EXIBIR OS CPFs QUE JÁ RECEBERAM A MÁSCARA
   public void exibirCadastro(){
 

@@ -36,7 +36,7 @@ public class Gravar{
     //SE O ARQUIVO EXISTIR ELE NÃO VAI CRIAR NOVAMENTE
      if (File.Exists(arquivo)) {
          
-        Console.WriteLine ("O arquivo já existe"); 
+        
         escrita = File.AppendText(arquivo);
         
 
